@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace ShineUnited\Conductor\Addon\Twig\Twig;
+namespace ShineUnited\Conductor\Addon\Twig\Extension;
 
 use ShineUnited\Conductor\Configuration\Configuration;
 use Twig\Extension\AbstractExtension;

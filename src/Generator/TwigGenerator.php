@@ -22,10 +22,10 @@ use Composer\IO\IOInterface;
 use Composer\Plugin\PluginManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
-use ShineUnited\Conductor\Addon\Twig\Twig\ConfigExtension;
-use ShineUnited\Conductor\Addon\Twig\Twig\PathExtension;
+use ShineUnited\Conductor\Addon\Twig\Extension\ConfigExtension;
+use ShineUnited\Conductor\Addon\Twig\Extension\PathExtension;
 use ShineUnited\Conductor\Addon\Twig\Capability\NamespaceProvider as NamespaceProviderCapability;
-use ShineUnited\Conductor\Addon\Twig\Twig\TwigNamespace;
+use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespace;
 
 /**
  * Twig Generator
