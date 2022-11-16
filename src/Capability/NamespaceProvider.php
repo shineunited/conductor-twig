@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace ShineUnited\Conductor\Addon\Twig\Capability;
 
-use ShineUnited\Conductor\Addon\Twig\Twig\TwigNamespace;
+use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespace;
 use Composer\Plugin\Capability\Capability;
 
 /**
