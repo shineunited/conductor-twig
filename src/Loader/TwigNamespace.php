@@ -17,7 +17,7 @@ namespace ShineUnited\Conductor\Addon\Twig\Loader;
  * Twig Namespace
  */
 class TwigNamespace implements TwigNamespaceInterface {
-	private string $name;
+	private ?string $name;
 	private array $paths;
 
 	/**
