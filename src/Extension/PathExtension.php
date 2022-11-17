@@ -36,15 +36,6 @@ class PathExtension extends AbstractExtension {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function getGlobals(): array {
-		return [
-			'config' => $this->config
-		];
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	public function getFunctions(): array {
 		return [
 			new TwigFunction('path', [$this, 'getPath'])
