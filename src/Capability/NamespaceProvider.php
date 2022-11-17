@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace ShineUnited\Conductor\Addon\Twig\Capability;
 
-use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespace;
+use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespaceInterface;
 use Composer\Plugin\Capability\Capability;
 
 /**
@@ -29,7 +29,7 @@ interface NamespaceProvider extends Capability {
 	/**
 	 * Retrieves an array of twig namespaces
 	 *
-	 * @return TwigNamespace[]
+	 * @return TwigNamespaceInterface[]
 	 */
 	public function getNamespaces(): array;
 }
