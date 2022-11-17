@@ -16,7 +16,7 @@ namespace ShineUnited\Conductor\Addon\Twig\Loader;
 /**
  * Twig Namespace
  */
-class TwigNamespace {
+class TwigNamespace implements TwigNamespaceInterface {
 	private string $name;
 	private array $paths;
 
@@ -37,18 +37,14 @@ class TwigNamespace {
 	}
 
 	/**
-	 * Gets the name of the namespace.
-	 *
-	 * @return string The name of the namespace.
+	 * {@inheritDoc}
 	 */
 	public function getName(): ?string {
 		return $this->name;
 	}
 
 	/**
-	 * Gets the namespace include paths.
-	 *
-	 * @return string[] List of template include paths for this namespace.
+	 * {@inheritDoc}
 	 */
 	public function getPaths(): array {
 		return $this->paths;

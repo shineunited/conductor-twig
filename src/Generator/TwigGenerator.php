@@ -25,7 +25,7 @@ use Twig\Environment;
 use ShineUnited\Conductor\Addon\Twig\Extension\ConfigExtension;
 use ShineUnited\Conductor\Addon\Twig\Extension\PathExtension;
 use ShineUnited\Conductor\Addon\Twig\Capability\NamespaceProvider as NamespaceProviderCapability;
-use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespace;
+use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespaceInterface;
 
 /**
  * Twig Generator
@@ -64,7 +64,7 @@ class TwigGenerator implements GeneratorInterface {
 			]);
 			foreach ($providers as $provider) {
 				foreach ($provider->getNamespaces() as $namespace) {
-					if (!$namespace instanceof TwigNamespace) {
+					if (!$namespace instanceof TwigNamespaceInterface) {
 						throw new \Exception('Invalid twig namespace: ' . get_class($namespace));
 					}
 
