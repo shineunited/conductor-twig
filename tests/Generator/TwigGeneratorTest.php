@@ -14,7 +14,10 @@ declare(strict_types=1);
 namespace ShineUnited\Conductor\Addon\Twig\Tests\Generator;
 
 use ShineUnited\Conductor\Addon\Twig\Tests\TestCase;
+use ShineUnited\Conductor\Addon\Twig\Blueprint\TwigBlueprintInterface;
 use ShineUnited\Conductor\Addon\Twig\Generator\TwigGenerator;
+use ShineUnited\Conductor\Filesystem\Blueprint\BlueprintInterface;
+use ShineUnited\Conductor\Filesystem\Blueprint\FileBlueprintInterface;
 use ShineUnited\Conductor\Filesystem\Generator\GeneratorInterface;
 
 /**
@@ -25,13 +28,16 @@ class TwigGeneratorTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testHandlesType(): void {
+	public function testHandlesBlueprint(): void {
 		$generator = new TwigGenerator();
 
-		$this->assertInstanceOf(GeneratorInterface::class, $generator);
+		$twigBlueprint = $this->createStub(TwigBlueprintInterface::class);
+		$genericBlueprint = $this->createStub(BlueprintInterface::class);
+		$fileBlueprint = $this->createStub(FileBlueprintInterface::class);
 
-		$this->assertTrue($generator->handlesType(TwigGenerator::TYPE));
-		$this->assertFalse($generator->handlesType(TwigGenerator::TYPE . '-invalid'));
+		$this->assertTrue($generator->handlesBlueprint($twigBlueprint));
+		$this->assertFalse($generator->handlesBlueprint($genericBlueprint));
+		$this->assertFalse($generator->handlesBlueprint($fileBlueprint));
 	}
 
 	/**
