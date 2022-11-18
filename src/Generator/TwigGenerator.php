@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace ShineUnited\Conductor\Addon\Twig\Generator;
 
 use ShineUnited\Conductor\Addon\Twig\Blueprint\TwigBlueprint;
+use ShineUnited\Conductor\Addon\Twig\Blueprint\TwigBlueprintInterface;
 use ShineUnited\Conductor\Filesystem\File;
 use ShineUnited\Conductor\Filesystem\Blueprint\BlueprintInterface;
 use ShineUnited\Conductor\Filesystem\Generator\GeneratorInterface;
@@ -31,15 +32,12 @@ use ShineUnited\Conductor\Addon\Twig\Loader\TwigNamespaceInterface;
  * Twig Generator
  */
 class TwigGenerator implements GeneratorInterface {
-	public const TYPE = 'twig';
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function handlesType(string $type): bool {
-		$type = strtolower(trim($type));
-
-		if ($type == self::TYPE) {
+	public function handlesBlueprint(BlueprintInterface $blueprint): bool {
+		if ($blueprint instanceof TwigBlueprintInterface) {
 			return true;
 		}
 
@@ -52,7 +50,7 @@ class TwigGenerator implements GeneratorInterface {
 	 * @throws \Exception If not instance of TwigBlueprint
 	 */
 	public function generateContents(BlueprintInterface $blueprint, File $file, Configuration $config): string {
-		if (!$blueprint instanceof TwigBlueprint) {
+		if (!$blueprint instanceof TwigBlueprintInterface) {
 			throw new \Exception('Invalid ' . TwigBlueprint::class);
 		}
 

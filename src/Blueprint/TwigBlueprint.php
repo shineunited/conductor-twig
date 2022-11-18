@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace ShineUnited\Conductor\Addon\Twig\Blueprint;
 
-use ShineUnited\Conductor\Addon\Twig\Generator\TwigGenerator;
 use ShineUnited\Conductor\Filesystem\Blueprint\BaseBlueprint;
 
 /**
  * Twig Blueprint
  */
-class TwigBlueprint extends BaseBlueprint {
+class TwigBlueprint extends BaseBlueprint implements TwigBlueprintInterface {
 	private mixed $template;
 	private array $context;
 
@@ -39,25 +38,21 @@ class TwigBlueprint extends BaseBlueprint {
 		?string $allowCreate = null,
 		?string $allowUpdate = null
 	) {
-		parent::__construct(TwigGenerator::TYPE, $path, $allowCreate, $allowUpdate);
+		parent::__construct($path, $allowCreate, $allowUpdate);
 
 		$this->template = $template;
 		$this->context = $context;
 	}
 
 	/**
-	 * Get the template name.
-	 *
-	 * @return string|callable Template name, expects to be processed.
+	 * {@inheritDoc}
 	 */
 	public function getTemplate(): string|callable {
 		return $this->template;
 	}
 
 	/**
-	 * Get the twig context.
-	 *
-	 * @return mixed[] Twig context, expects to be processed.
+	 * {@inheritDoc}
 	 */
 	public function getContext(): array {
 		return $this->context;
