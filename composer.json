@@ -2,10 +2,15 @@
 	"name": "shineunited/conductor-twig-addon",
 	"type": "composer-plugin",
 	"license": "MIT",
+	"description": "Addon for Conductor to support building files using Twig templates.",
+	"keywords": [
+		"conductor",
+		"twig"
+	],
 	"require": {
 		"php": ">=8.0",
 		"composer-plugin-api": "^2.0",
-		"shineunited/conductor": "*",
+		"shineunited/conductor": "^1.0",
 		"symfony/filesystem": "^6.0",
 		"twig/twig": "^3.4"
 	},
