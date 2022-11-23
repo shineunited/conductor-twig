@@ -14,7 +14,7 @@ Add support for Twig templates to the Conductor generator/blueprint framework.
 
 ## Installation
 
-To add conductor-twig-addon, the recommend method is via composer.
+To add conductor-twig-addon, the recommended method is via composer.
 ```sh
 $ composer require shineunited/conductor-twig-addon
 ```
